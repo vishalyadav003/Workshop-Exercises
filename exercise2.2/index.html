@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="Submit a campus IT helpdesk request and review existing tickets.">
+  <title>Campus IT Helpdesk — Request support</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Campus IT Helpdesk home"><span class="brand-mark" aria-hidden="true">C</span><span>Campus<span class="brand-light">IT</span></span></a>
+      <div class="nav-links"><a href="#request">Submit a request</a><a href="#tickets">Browse tickets</a><a class="nav-help" href="#support">Help center <span aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="page-shell">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> CAMPUS IT SUPPORT</p><h1 id="page-title">How can we<br><span>help you today?</span></h1><p class="hero-intro">Tell us what’s going on. Our support team will get back to you as soon as possible.</p></div>
+      <div class="hero-card"><span class="hero-icon" aria-hidden="true">✳</span><div><strong>Here for you, 24/7</strong><p>Most requests receive a response within one business day.</p></div><span class="hero-arrow" aria-hidden="true">↗</span></div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div><div class="hero-orb orb-two" aria-hidden="true"></div>
+    </section>
+
+    <div class="content-grid">
+      <section id="request" class="panel form-panel" aria-labelledby="form-heading">
+        <div class="section-heading"><div><p class="eyebrow">LET’S GET THIS SORTED</p><h2 id="form-heading">Submit a request</h2></div><span class="required-note"><span aria-hidden="true">*</span> Required fields</span></div>
+        <div class="privacy-note"><span class="note-icon" aria-hidden="true">i</span><p>Demo mode: submissions stay in this browser session. Please don’t include passwords or sensitive personal information.</p></div>
+        <form id="request-form" novalidate>
+          <div class="field-grid">
+            <div class="field"><label for="category">Issue category <span aria-hidden="true">*</span></label><select id="category" name="category" required aria-describedby="category-error"><option value="">Choose a category</option><option>Hardware</option><option>Software</option><option>Network</option><option>Account/Login</option><option>General</option></select><small class="field-error" id="category-error"></small></div>
+            <div class="field"><label for="urgency">Urgency level <span aria-hidden="true">*</span></label><select id="urgency" name="urgency" required aria-describedby="urgency-error"><option value="">Choose urgency</option><option>Low</option><option>Medium</option><option>High</option><option>Critical</option></select><small class="field-error" id="urgency-error"></small></div>
+          </div>
+          <div class="field"><label for="title">Short title <span aria-hidden="true">*</span></label><input id="title" name="title" type="text" placeholder="e.g. Can't connect to campus Wi-Fi" minlength="5" maxlength="100" required aria-describedby="title-hint title-error"><small class="field-hint" id="title-hint">Summarize the issue in 5–100 characters.</small><small class="field-error" id="title-error"></small></div>
+          <div class="field"><label for="description">Detailed description <span aria-hidden="true">*</span></label><textarea id="description" name="description" rows="5" minlength="20" maxlength="2000" placeholder="What happened? What have you already tried? Include any error messages." required aria-describedby="description-hint description-error"></textarea><div class="field-meta"><small class="field-hint" id="description-hint">Please leave out passwords and other sensitive information. 20–2,000 characters.</small><small id="char-count" aria-live="polite">0 / 2,000</small></div><small class="field-error" id="description-error"></small></div>
+          <fieldset class="field contact-field"><legend>Preferred contact method <span aria-hidden="true">*</span></legend><div class="radio-options"><label class="radio-card"><input type="radio" name="contact" value="Email" required><span class="radio-dot"></span><span class="radio-symbol" aria-hidden="true">✉</span><span>Email</span></label><label class="radio-card"><input type="radio" name="contact" value="Phone"><span class="radio-dot"></span><span class="radio-symbol" aria-hidden="true">⌕</span><span>Phone</span></label><label class="radio-card"><input type="radio" name="contact" value="In-person" required><span class="radio-dot"></span><span class="radio-symbol" aria-hidden="true">⌖</span><span>In-person</span></label></div><small class="field-error" id="contact-error"></small></fieldset>
+          <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+          <div class="form-actions"><p><span aria-hidden="true">🔒</span> Your information stays private.</p><button class="button button-primary" type="submit">Submit request <span aria-hidden="true">→</span></button></div>
+        </form>
+      </section>
+
+      <aside class="panel summary-panel" aria-labelledby="summary-heading"><div class="summary-top"><span class="summary-icon" aria-hidden="true">✦</span><p class="eyebrow">YOUR REQUEST</p><h2 id="summary-heading">We’re ready<br>when you are.</h2><p class="summary-copy">Once you submit, your request details and next steps will appear here.</p></div><div id="summary-content" class="summary-content" aria-live="polite"><div class="summary-empty-icon" aria-hidden="true">↗</div><p>Your confirmation will show up here.</p></div><div class="summary-footer"><span class="shield" aria-hidden="true">✓</span><p><strong>Your privacy matters</strong><br>Never share your password in a request.</p></div></aside>
+    </div>
+
+    <section id="tickets" class="panel tickets-panel" aria-labelledby="tickets-heading"><div class="tickets-heading"><div><p class="eyebrow">THE SUPPORT DESK</p><h2 id="tickets-heading">Recent requests</h2><p class="tickets-intro">A look at what’s happening around campus.</p></div><span id="ticket-count" class="ticket-count" aria-live="polite"></span></div><div class="ticket-tools"><label class="search-box" for="ticket-search"><span aria-hidden="true">⌕</span><span class="visually-hidden">Search tickets</span><input id="ticket-search" type="search" placeholder="Search requests…"></label><label class="filter-select" for="ticket-filter"><span class="visually-hidden">Filter tickets by category</span><select id="ticket-filter"><option value="all">All categories</option><option>Hardware</option><option>Software</option><option>Network</option><option>Account/Login</option><option>General</option></select></label></div><div class="table-wrap"><table><caption class="visually-hidden">Synthetic recent helpdesk requests, filterable by category or search term</caption><thead><tr><th scope="col">REQUEST</th><th scope="col">CATEGORY</th><th scope="col">STATUS</th><th scope="col">UPDATED</th></tr></thead><tbody id="ticket-rows"></tbody></table><div id="empty-tickets" class="empty-tickets" hidden>No requests match your search. Try another term or category.</div></div><p class="sample-note">Example requests · Synthetic data for demonstration</p></section>
+    <footer id="support" class="site-footer"><span>© 2026 Campus IT Services</span><span>Need urgent help? <a href="mailto:helpdesk@example.edu">Contact the helpdesk</a></span><a href="#top">Back to top ↑</a></footer>
+  </main>
+</body>
+</html>

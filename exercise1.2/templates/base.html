@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16"><title>{% block title %}LibraryOS{% endblock %} · LibraryOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-frame">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="{{ url_for('index') }}"><span class="brand-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7.5c3.8-.8 7.2-.2 10 1.8v17c-2.8-2-6.2-2.6-10-1.8v-17Zm20 0c-3.8-.8-7.2-.2-10 1.8v17c2.8-2 6.2-2.6 10-1.8v-17Z"/><path d="M16 9v17"/></svg></span><span>LIBRARY<span class="brand-sub">RESOURCE OS</span></span></a>
+      <div class="nav-caption">WORKSPACE</div>
+      <nav class="side-nav">
+        <a class="side-link {{ 'active' if page == 'overview' else '' }}" href="{{ url_for('index') }}"><span class="side-icon">⌂</span>Overview</a>
+        <a class="side-link" href="{{ url_for('index') }}#catalogue"><span class="side-icon">▦</span>Resources</a>
+        <a class="side-link" href="{{ url_for('schedule_page') }}"><span class="side-icon">◷</span>Schedule</a>
+        <a class="side-link" href="{{ url_for('index') }}#analytics"><span class="side-icon">▤</span>Analytics</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="online-indicator"></div><div><b>System operational</b><small>All services running normally</small></div></div>
+      <div class="side-version">LIBRARY SIMULATOR</div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="menuToggle" aria-label="Open navigation">☰</button><div class="crumb">Library <span>/</span> {{ 'Overview' if page == 'overview' else 'Daily schedule' }}</div><div class="topbar-right"><div class="live-clock"><i></i><span id="systemClock">--:--:--</span><span class="clock-zone">LOCAL</span></div><span class="topbar-divider"></span><span class="today-label" id="todayLabel"></span><div class="user-avatar">LS</div></div></header>
+      <div class="page-wrap">{% block content %}{% endblock %}</div>
+      <footer class="page-footer"><span>LIBRARY RESOURCE OS</span><span>BOOKING SIMULATOR</span></footer>
+    </main>
+  </div>
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <div class="modal-scrim hidden" id="bookingModal" aria-hidden="true"><section class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingTitle"><button class="dialog-close" data-close-booking aria-label="Close">×</button><div class="dialog-kicker"><span class="live-dot"></span> RESERVE A RESOURCE</div><h2 id="bookingTitle">Make time for<br><span>what matters.</span></h2><p class="dialog-copy">Choose your resource and session details. We’ll check the schedule instantly.</p><form id="bookingForm"><label class="form-label" for="resourceSelect">Resource</label><select id="resourceSelect" required><option value="">Choose a resource</option></select><label class="form-label" for="userId">User ID</label><input id="userId" required autocomplete="off" placeholder="e.g. U-204"><div class="form-split"><div><label class="form-label" for="bookingDate">Date</label><input id="bookingDate" type="date" min="{{ today }}" value="{{ today }}" required></div><div><label class="form-label" for="startTime">Start time</label><input id="startTime" type="time" required></div></div><label class="form-label" for="endTime">End time</label><input id="endTime" type="time" required><div class="slot-check" id="slotHint"><span class="hint-pip"></span><span>Select a resource and time to check availability.</span></div><button type="submit" class="button-primary submit-booking" id="bookButton">Confirm booking <span>→</span></button></form></section></div>
+  <div class="modal-scrim hidden" id="waitlistModal" aria-hidden="true"><section class="waitlist-dialog" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle"><button class="dialog-close" data-close-waitlist aria-label="Close">×</button><div class="waitlist-icon">⌁</div><div class="dialog-kicker amber-text">TIME SLOT IN USE</div><h2 id="waitlistTitle">Join the wait-list?</h2><p class="dialog-copy" id="waitlistMessage">That slot is already booked.</p><div class="dialog-actions"><button class="button-quiet" data-close-waitlist>Choose another time</button><button class="button-primary" id="joinWaitlist">Join wait-list <span>→</span></button></div></section></div>
+  <script>window.LIBRARY_TODAY={{ today|tojson }};</script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

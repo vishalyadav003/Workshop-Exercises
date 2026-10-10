@@ -1,0 +1,9 @@
+RESOURCE USAGE & CANCELLATION REPORT
+Active booking count per resource:
+  P-201 (Projector, Equipment Desk): 1
+  S-101 (Seat, Quiet Zone, Floor 1): 1
+  S-102 (Seat, Quiet Zone, Floor 1): 0
+  L-301 (Laptop, Equipment Desk): 0
+
+Cancelled bookings (1):
+  DEMO1003 | S-102 | user U-100 | 2026-10-12 10:00-11:00

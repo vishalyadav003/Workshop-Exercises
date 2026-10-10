@@ -1,0 +1,35 @@
+[
+  {
+    "id": "n-20261008-001",
+    "kind": "Found",
+    "category": "Electronics",
+    "description": "Black wireless earbuds in a small charging case, left near the reading desks on the first floor.",
+    "zone": "Library",
+    "event_date": "2026-10-08",
+    "contact": "Library help desk",
+    "created_at": "2026-10-08T08:30:00+00:00",
+    "resolved": false
+  },
+  {
+    "id": "n-20261007-002",
+    "kind": "Lost",
+    "category": "Bags & Accessories",
+    "description": "Navy blue water bottle with a white mountain sticker. May have been left after lunch.",
+    "zone": "Cafeteria",
+    "event_date": "2026-10-07",
+    "contact": "Student services counter",
+    "created_at": "2026-10-07T12:10:00+00:00",
+    "resolved": false
+  },
+  {
+    "id": "n-20261006-003",
+    "kind": "Found",
+    "category": "Keys",
+    "description": "A single key on a green fabric tag. Handed in after practice.",
+    "zone": "Sports Complex",
+    "event_date": "2026-10-06",
+    "contact": "Sports reception desk",
+    "created_at": "2026-10-06T15:45:00+00:00",
+    "resolved": true
+  }
+]

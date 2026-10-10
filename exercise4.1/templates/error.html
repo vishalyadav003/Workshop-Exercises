@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}{{ code }} · Campus Found{% endblock %}
+{% block content %}<section class="error-state"><p class="error-code">{{ code }}</p><h1>{{ message }}</h1><p>Return to the notice board and try again.</p><a class="button" href="{{ url_for('notices.index') }}">Back to notices</a></section>{% endblock %}

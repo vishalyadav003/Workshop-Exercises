@@ -1,0 +1,7 @@
+[
+  {"event_id":"TECH101","name":"Python Programming Workshop","capacity":30},
+  {"event_id":"TECH102","name":"Campus Robotics Demo","capacity":24},
+  {"event_id":"ART203","name":"Design & Creativity Summit","capacity":80},
+  {"event_id":"COMM14","name":"Founders & Futures Mixer","capacity":60},
+  {"event_id":"WELLNESS5","name":"Mindful Campus Morning","capacity":45}
+]

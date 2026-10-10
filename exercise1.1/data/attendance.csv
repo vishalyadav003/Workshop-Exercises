@@ -1,0 +1,4 @@
+Participant ID,Name,Email,Event ID,Event Name,Registered At (UTC)
+STU001,Aarav Mehta,aarav.mehta@example.edu,TECH101,Python Programming Workshop,2026-10-08T09:00:00+00:00
+STU002,Mira Shah,mira.shah@example.edu,TECH101,Python Programming Workshop,2026-10-08T09:05:00+00:00
+STU003,Ishan Rao,ishan.rao@example.edu,TECH102,Campus Robotics Demo,2026-10-08T09:10:00+00:00

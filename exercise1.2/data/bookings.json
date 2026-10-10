@@ -1,0 +1,15 @@
+{
+  "resources": [
+    {"resource_id": "S-101", "resource_type": "Study Seat", "location": "Quiet Zone, Floor 1", "available": true},
+    {"resource_id": "S-102", "resource_type": "Study Seat", "location": "Quiet Zone, Floor 1", "available": true},
+    {"resource_id": "P-201", "resource_type": "Projector", "location": "Equipment Desk", "available": true},
+    {"resource_id": "L-301", "resource_type": "Laptop", "location": "Equipment Desk", "available": true},
+    {"resource_id": "R-401", "resource_type": "Conference Room", "location": "Collaboration Wing, Floor 2", "available": true}
+  ],
+  "bookings": [
+    {"booking_id": "DEMO1001", "resource_id": "S-101", "user_id": "U-100", "booking_date": "2026-10-12", "start_time": "09:00", "end_time": "10:30", "status": "active", "created_at": "2026-10-09T09:00:00"},
+    {"booking_id": "DEMO1002", "resource_id": "P-201", "user_id": "U-205", "booking_date": "2026-10-12", "start_time": "11:00", "end_time": "12:00", "status": "active", "created_at": "2026-10-09T09:05:00"},
+    {"booking_id": "DEMO1003", "resource_id": "S-102", "user_id": "U-100", "booking_date": "2026-10-12", "start_time": "10:00", "end_time": "11:00", "status": "cancelled", "created_at": "2026-10-09T09:10:00"}
+  ],
+  "waitlist": []
+}

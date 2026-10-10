@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Browse notices · Campus Found{% endblock %}
+{% block content %}
+<section class="hero"><div><p class="eyebrow">CAMPUS COMMUNITY</p><h1>Lost something?<br><span>Found something?</span></h1><p class="lead">A simple place to reconnect people with their belongings.</p></div><div class="hero-icon" aria-hidden="true">⌕</div></section>
+<section class="toolbar" aria-label="Search and filter notices">
+  <form method="get" action="{{ url_for('notices.index') }}" class="filter-form">
+    <label class="search-field"><span class="sr-only">Search notices</span><span aria-hidden="true">⌕</span><input name="q" value="{{ filters.q }}" placeholder="Search descriptions, items, places…"></label>
+    <label><span class="sr-only">Category</span><select name="category"><option value="">All categories</option>{% for item in categories %}<option value="{{ item }}" {% if filters.category == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></label>
+    <label><span class="sr-only">Location zone</span><select name="zone"><option value="">All zones</option>{% for item in zones %}<option value="{{ item }}" {% if filters.zone == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></label>
+    <button class="button" type="submit">Search</button>
+    {% if filters.q or filters.category or filters.zone %}<a class="clear-link" href="{{ url_for('notices.index') }}">Clear</a>{% endif %}
+  </form>
+</section>
+<div class="section-heading"><div><p class="eyebrow">NOTICE BOARD</p><h2>Active notices <span class="count">{{ notices|length }}</span></h2></div><a href="{{ url_for('notices.create') }}" class="text-link">Post an item <span aria-hidden="true">→</span></a></div>
+{% if notices %}<div class="notice-grid">{% for notice in notices %}<article class="notice-card"><div class="card-top"><span class="tag tag-{{ notice.kind|lower }}">{{ notice.kind }}</span><span class="category">{{ notice.category }}</span></div><h3><a href="{{ url_for('notices.detail', notice_id=notice.id) }}">{{ notice.description|truncate(105) }}</a></h3><div class="card-meta"><span>⌖ {{ notice.zone }}</span><span>◷ {{ notice.event_date }}</span></div><a class="card-link" href="{{ url_for('notices.detail', notice_id=notice.id) }}">View details <span aria-hidden="true">→</span></a></article>{% endfor %}</div>
+{% else %}<div class="empty-state"><div class="empty-icon" aria-hidden="true">⌕</div><h3>No active notices found</h3><p>Try changing your filters, or post a notice to help someone out.</p><a href="{{ url_for('notices.create') }}" class="button">Post a notice</a></div>{% endif %}
+{% endblock %}

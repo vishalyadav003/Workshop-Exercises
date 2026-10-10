@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exercise2-1-config-audit"
+version = "1.0.0"
+description = "Reproducible Python environment and dependency audit exercise"
+requires-python = ">=3.8"
+dependencies = ["python-dotenv==1.0.1"]
+
+[tool.setuptools]
+packages = ["src"]

@@ -1,0 +1,3 @@
+booking_id,resource_id,user_id,date,start_time,end_time,status
+DEMO1001,S-101,U-100,2026-10-12,09:00,10:30,active
+DEMO1002,P-201,U-205,2026-10-12,11:00,12:00,active

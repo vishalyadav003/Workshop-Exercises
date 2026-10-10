@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Campus lost-and-found notice board">
+  <title>{% block title %}Campus Notice Board{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/skin.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ url_for('notices.index') }}"><span class="brand-mark" aria-hidden="true">↗</span> Campus Found</a>
+      <nav aria-label="Main navigation"><a href="{{ url_for('notices.index') }}">Browse notices</a><a class="button button-light" href="{{ url_for('notices.create') }}">＋ Post a notice</a></nav>
+    </div>
+  </header>
+  <main class="wrap main-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="flash-list" aria-live="polite">{% for category, message in messages %}<p class="flash flash-{{ category }}">{{ message }}</p>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer"><div class="wrap">Campus Found <span>· Share only dummy contact details. Meet in a public campus location.</span></div></footer>
+</body>
+</html>

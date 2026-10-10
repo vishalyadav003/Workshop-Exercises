@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Post a notice · Campus Found{% endblock %}
+{% block content %}
+<div class="page-heading"><a class="back-link" href="{{ url_for('notices.index') }}">← Back to notices</a><p class="eyebrow">HELP RECONNECT AN ITEM</p><h1>Post a notice</h1><p>Share the details someone needs to identify and recover an item.</p></div>
+<form class="form-card" method="post" action="{{ url_for('notices.create') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  {% if errors %}<div class="form-errors" role="alert"><strong>Please fix the following:</strong><ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul></div>{% endif %}
+  <fieldset><legend>Notice type</legend><div class="choice-row">{% for kind in kinds %}<label class="choice"><input type="radio" name="kind" value="{{ kind }}" {% if values.get('kind', 'Lost') == kind %}checked{% endif %}><span>{{ kind }} item</span></label>{% endfor %}</div></fieldset>
+  <div class="form-grid">
+    <label>Item category <span class="required">*</span><select name="category" required><option value="">Select a category</option>{% for item in categories %}<option value="{{ item }}" {% if values.get('category') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></label>
+    <label>Location zone <span class="required">*</span><select name="zone" required><option value="">Select a zone</option>{% for item in zones %}<option value="{{ item }}" {% if values.get('zone') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select></label>
+    <label class="full-width">Description <span class="required">*</span><textarea name="description" rows="5" maxlength="1000" required placeholder="Describe the item and any identifying details…">{{ values.get('description', '') }}</textarea><small>Up to 1,000 characters. Avoid sharing sensitive personal information.</small></label>
+    <label>Date found/lost <span class="required">*</span><input type="date" name="event_date" max="{{ today }}" value="{{ values.get('event_date', '') }}" required></label>
+    <label>Contact preference <span class="required">*</span><input name="contact" maxlength="120" value="{{ values.get('contact', '') }}" required placeholder="e.g. Campus desk, Library counter"><small>Use a public campus contact point. Don’t enter personal contact details.</small></label>
+  </div>
+  <div class="form-actions"><a href="{{ url_for('notices.index') }}" class="button button-quiet">Cancel</a><button class="button" type="submit">Post notice <span aria-hidden="true">→</span></button></div>
+</form>
+{% endblock %}

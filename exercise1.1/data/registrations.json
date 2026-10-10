@@ -1,0 +1,8 @@
+[
+  {"participant_id":"STU001","name":"Aarav Mehta","email":"aarav.mehta@example.edu","event_id":"TECH101","registered_at":"2026-10-08T09:00:00+00:00"},
+  {"participant_id":"STU002","name":"Mira Shah","email":"mira.shah@example.edu","event_id":"TECH101","registered_at":"2026-10-08T09:05:00+00:00"},
+  {"participant_id":"STU003","name":"Ishan Rao","email":"ishan.rao@example.edu","event_id":"TECH102","registered_at":"2026-10-08T09:10:00+00:00"},
+  {"participant_id":"STU004","name":"Ananya Kapoor","email":"ananya.kapoor@example.edu","event_id":"ART203","registered_at":"2026-10-08T09:16:00+00:00"},
+  {"participant_id":"STU005","name":"Kabir Nair","email":"kabir.nair@example.edu","event_id":"COMM14","registered_at":"2026-10-08T09:22:00+00:00"},
+  {"participant_id":"STU006","name":"Diya Menon","email":"diya.menon@example.edu","event_id":"TECH101","registered_at":"2026-10-08T09:31:00+00:00"}
+]
